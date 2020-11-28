@@ -38,6 +38,9 @@ public class IOFIle {
                     System.out.println("Enter name file display");
                     displayFile(input.nextLine());
                     break;
+                case 6:
+                    CSVReader();
+                    break;
                 default:
                     break;
             }
@@ -50,6 +53,7 @@ public class IOFIle {
         System.out.println("3. Display name file exit");
         System.out.println("4. Display path file exit");
         System.out.println("5. Display file");
+        System.out.println("6. ReaderCSV");
         System.out.println("0. Exit");
         System.out.println("");
     }
@@ -142,5 +146,30 @@ public class IOFIle {
         }
         bufferedReader.close();
         System.out.println("");
+    }
+    private static void CSVReader(){
+        String csvFile= "csv/country.csv";
+        BufferedReader br=null;
+        String line="";
+        String csvSplitBy=",";
+        try{
+            br =new BufferedReader(new FileReader(csvFile));
+            while ((line= br.readLine())!=null){
+                String[] country= line.split(csvSplitBy);
+                System.out.println("Country [code= " + country[4] + " , name=" + country[5] + "]");
+            }
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            if (br != null){
+                try{
+                    br.close();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
