@@ -34,6 +34,10 @@ public class IOFIle {
                 case 4:
                     pathFile();
                     break;
+                case 5:
+                    System.out.println("Enter name file display");
+                    displayFile(input.nextLine());
+                    break;
                 default:
                     break;
             }
@@ -45,6 +49,7 @@ public class IOFIle {
         System.out.println("2. Clone newFile ");
         System.out.println("3. Display name file exit");
         System.out.println("4. Display path file exit");
+        System.out.println("5. Display file");
         System.out.println("0. Exit");
         System.out.println("");
     }
@@ -122,7 +127,20 @@ public class IOFIle {
             System.out.println(path.getAbsoluteFile());
         }
     }
-    private static void displayFile(){
+    private static void displayFile(String fileName) throws IOException{
+        File file =new File("IOFile\\"+fileName);
+        if (!file.exists()){
+            System.out.println("Not exit file");
+            return;
+        }
+        FileReader fileReader= new FileReader(file);
+        BufferedReader bufferedReader= new BufferedReader(fileReader);
 
+        String line= null;
+        while ((line=bufferedReader.readLine())!=null){
+            System.out.println(line);
+        }
+        bufferedReader.close();
+        System.out.println("");
     }
 }
