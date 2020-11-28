@@ -10,7 +10,7 @@ public class IOFIle {
         Scanner input  = new Scanner(System.in);
         File fileSource=null;
         File fileTarget= null;
-        String path="E:\\java-module2\\JavaCollentionFramework\\IOFIle\\IOFile\\";
+        String path="IOFile\\";
 
         while (true) {
             menu();
@@ -107,7 +107,7 @@ public class IOFIle {
     }
 
     private static void listFile(){
-        File dir= new File("E:\\java-module2\\JavaCollentionFramework\\IOFIle\\IOFile");
+        File dir= new File("IOFile");
         String[] paths=dir.list();
         System.out.println(" List file: ");
         for (String path: paths ){
@@ -115,11 +115,14 @@ public class IOFIle {
         }
     }
     private static void pathFile(){
-        File dir= new File("E:\\java-module2\\JavaCollentionFramework\\IOFIle\\IOFile");
+        File dir= new File("IOFile");
         File[] paths=dir.listFiles();
         System.out.println(" List file: ");
         for (File path: paths ){
             System.out.println(path.getAbsoluteFile());
         }
+    }
+    private static void displayFile(){
+
     }
 }
